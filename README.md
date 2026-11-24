@@ -15,6 +15,8 @@ Well, i dont know, its still in dev<br>
 
 This one is small. The big ahh commit, i **think** the **2nd one**, has a commit message that was outsourced to an LLM (the commit message was outsourced not the code, the code is all mine), and it contains work done before the existence of this GH repo.
 
+Big stuff, **Code might not even compile at current state, as some commits + push might come with uncompleted code, or bugs that i didnt have time to fix or check**
+
 ## How to run
 
 The game is not done **yet** so i dont see why you would be willing to run this.
