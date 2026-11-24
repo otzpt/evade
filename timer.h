@@ -3,7 +3,7 @@
 
 typedef struct {
     long interval_ms;
-    long las_ms;
+    long last_ms;
 } Timer;
 
 void timer_init(Timer *t, long interval_ms);
