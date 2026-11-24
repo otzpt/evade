@@ -11,6 +11,10 @@ Well, i dont know, its still in dev<br>
 - **super lightweight**: it is super lightweight, as it is literally a **'@'** dodging randomly generated **'#'** in a fixed y position descending the screen
 - **maybe in the future**: points count, lives and death screen, i cant do much im in internship.
 
+## Notice
+
+This one is small. The big ahh commit, i **think** the **2nd one**, has a commit message that was outsourced to an LLM (the commit message was outsourced not the code, the code is all mine), and it contains work done before the existence of this GH repo.
+
 ## How to run
 
 The game is not done **yet** so i dont see why you would be willing to run this.

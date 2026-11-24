@@ -35,8 +35,10 @@ void obstacle(int *player_x, int *player_y) // idk if this should check for posi
     timer_init(&fall, 200);
     int obs_x = 2 + rand() % 49; // generate a random x pos
 
-    for (int i = 0; i <= MAX_OBJECT; i++) { 
-        mvaddch(MAX_Y - 1, *obs_x, '#');    
+    for (int i = 0; i <= MAX_OBJECT; i++) {
+        if (timer_due(&fall)) {
+            mvaddch(MAX_Y - 1, *obs_x, '#');
+        }    
     }
 }
 
