@@ -1,0 +1,9 @@
+.wakatime-project
+a.out
+.env
+*.o
+*.exe
+core
+core.*
+build/
+
