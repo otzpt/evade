@@ -14,12 +14,15 @@ Well, i dont know, its still in dev<br>
 ## How to run
 
 The game is not done **yet** so i dont see why you would be willing to run this.
+
 ``git clone https://github.com/otzpt/evade && cd evade``
 
-then you compile it:
+then you compile it
+
 ``gcc -Wall -Wextra main.c timer.c -O2 -o evade -lncurses``
 
-and now finally you run it:
+and now finally you run it
+
 ``./evade``
 
 **THIS TUTORIAL IS FOR LINUX AND YOU NEED GCC INSTALLED AND MAYBE C23**
