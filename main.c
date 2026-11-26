@@ -114,6 +114,17 @@ int main(void) {
             mvaddstr(MAX_Y/2, MAX_X/2, "you lost");
             mvaddstr((MAX_Y/2)+1, MAX_X/2, "press q to quit or r to restart");
             if (pressed_key == 'r') {
+                x = 10;
+                y = 20;
+                active = 0;
+                // reset timers n shit
+                timer_init(&fall, 200);
+                timer_init(&spawn, 1000);
+
+                for(int i = 0; i < MAX_OBJECT; i++) { 
+                    obs_x[i] = 0; 
+                    obs_y[i] = -1;  
+                } 
                 erase();
                 continue;
             }
