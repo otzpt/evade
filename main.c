@@ -29,15 +29,15 @@ void setup()
     timeout(25); // use ths instead of nodelay or 
 }
 
-void mov(int *y, int *x, int *pressed_key)
+void mov(int *y, int *x, int pressed_key)
 {
-    if (*pressed_key == 'a' && *x > 2) {
+    if (pressed_key == 'a' && *x > 2) {
         (*x)--;
-    } else if (*pressed_key == 'd' && *x < MAX_X) {
+    } else if (pressed_key == 'd' && *x < MAX_X) {
         (*x)++;
-    } else if (*pressed_key == 'w' && *y > 5) {
+    } else if (pressed_key == 'w' && *y > 5) {
         (*y)--;
-    } else if (*pressed_key == 's' && *y < MAX_Y) {
+    } else if (pressed_key == 's' && *y < MAX_Y) {
         (*y)++;
     }
 }
@@ -55,13 +55,13 @@ void borders(void)
     }
 }
 
-void hud(long *time_passed, long *last_passed, int *tries, float *points, float *multiplier)
+void hud(long time_passed, long *last_passed, int tries, float *points, float *multiplier)
 {
     static int x = 1; // this is the starting x position were points are going to be written
 
-    if (*time_passed != *last_passed) {
-        *last_passed = *time_passed;
-        if (*time_passed % 20 == 0) {
+    if (time_passed != *last_passed) {
+        *last_passed = time_passed;
+        if (time_passed > 0 && time_passed % 20 == 0) {
             *multiplier += 0.25;
             *points += (2.0 * *multiplier);
         } else { // using else here so its easier to read
@@ -70,13 +70,13 @@ void hud(long *time_passed, long *last_passed, int *tries, float *points, float 
     }
     
     mvprintw(MAX_Y + 2, x + 1, "Points: %.2f", *points);
-    mvprintw(MAX_Y + 2, MAX_X - 10, "Tries: %d", *tries);
+    mvprintw(MAX_Y + 2, MAX_X - 10, "Tries: %d", tries);
 }
 
-int colision(int *obs_x, int *obs_y, int *x, int *y)
+bool colision(int *obs_x, int *obs_y, int x, int y)
 {
     for (int i = 0; i < MAX_OBJECT; i++) {
-        if (obs_x[i] == *x && obs_y[i] == *y) {
+        if (obs_x[i] == x && obs_y[i] == y) {
             return true;
         }
     }
@@ -134,7 +134,7 @@ int main(void) {
     setup();
 
     while(1) {
-        bool dead = colision(obs_x, obs_y, &x, &y);
+        bool dead = colision(obs_x, obs_y, x, y);
         int pressed_key = getch();        
         
         // time counting stuf
@@ -147,8 +147,8 @@ int main(void) {
         if (!dead) {
             erase();
             borders();
-            hud(&passed, &last_passed, &tries, &points, &multiplier);
-            mov(&y, &x, &pressed_key);
+            hud(passed, &last_passed, tries, &points, &multiplier);
+            mov(&y, &x, pressed_key);
             mvaddch(y, x, '@');
             obstacle(obs_x, obs_y, &active, &fall, &spawn);
             refresh();
