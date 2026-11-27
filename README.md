@@ -9,7 +9,7 @@ Decided to port this over to phantom (hackclub YSWS) so i can have more fun and 
 - **super lightweight**: it is super lightweight, as it is literally a **'@'** dodging randomly generated **'#'** descending the screen
 - **death screen**: yea it is literally what you would expect from a death screen
 - **points system with multiplier**: counts points add 0.25x to multiplier every 20sec, receive 2 points every second you survive
-- **maybe in the future**: lives, reset button, better ascii, i cant do much im in internship.
+- **maybe in the future**: lives, reset during gameplay, better ascii, i cant do much im in internship.
 
 ## Notice
 
@@ -20,7 +20,10 @@ Big stuff, **Code might not compile, or game might have bugs at current state, a
 ## Dependencies
 
 - **ncurses**: for TUI, i dont use raw ascii
-- **LINUX**: for posix api, for now linux only, windows support planned
+- **LINUX/BSD/MACOS**: for posix api, for now linux, bsd and macos only, windows support might come in the future (but idk working with _WIN32 is hell compared to posix)
+- **NOT TESTED ON BSD AND MACOS**: this **was not** tested on both macos and bsd, but there is no reason it shouldn't work
+- **MACOS**: needs to be 10.12 or newer
+- **BSD**: should work in freeBSD and OpenBSD, NETBSD is the one im most doubtfull abt, it uses its own curses and ncurses.h only appears if you install it through pkgsrc
 
 ## How to run
 
@@ -42,4 +45,4 @@ and now finally you run it
 ./evade
 ```
 
-**THIS TUTORIAL IS LINUX ONLY AND YOU NEED GCC 4.x(bare minimum using -std=c99) OR NEWER INSTALLED AND C99+ (SHOULD DEFAULT WITH GCC 5 AND NEWER)**
+**THIS TUTORIAL IS POSIX ONLY AND YOU NEED GCC 4.x(bare minimum using -std=c99) OR NEWER INSTALLED AND C99+ (SHOULD DEFAULT WITH GCC 5 AND NEWER)**
