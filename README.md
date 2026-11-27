@@ -5,24 +5,22 @@ Decided to port this over to phantom (hackclub YSWS) so i can have more fun and 
 
 ## Features
 
-Well, i dont know, its still in dev<br>
-
 - **tick based timer**: well it has its own timer in a header file
-- **super lightweight**: it is super lightweight, as it is literally a **'@'** dodging randomly generated **'#'** in a fixed y position descending the screen
+- **super lightweight**: it is super lightweight, as it is literally a **'@'** dodging randomly generated **'#'** descending the screen
 - **death screen**: yea it is literally what you would expect from a death screen
-- **maybe in the future**: points count, lives, reset button, better ascii, i cant do much im in internship.
+- **points system with multiplier**: counts points add 0.25x to multiplier every 20sec, receive 2 points every second you survive
+- **maybe in the future**: lives, reset button, better ascii, i cant do much im in internship.
 
 ## Notice
 
 This one is small. The big ahh commit, i **think** the **2nd one**, has a commit message that was outsourced to an LLM (the commit message was outsourced not the code, the code is all mine), and it contains work done before the existence of this GH repo.
 
-Big stuff, **Code might not even compile at current state, as some commits + push might come with uncompleted code, or bugs that i didnt have time to fix or check**
+Big stuff, **Code might not compile, or game might have bugs at current state, as some commits + push might come with uncompleted code, or bugs that i didnt have time to fix or check**
 
 ## Dependencies
 
-**this is important if you want to try it out before i release binaries**
-
-It needs **C23** because of bool types so it needs an extra tag or gcc 15.x and newer, and it needs **ncurses** too
+- **ncurses**: for TUI, i dont use raw ascii
+- **LINUX**: for posix api, for now linux only, windows support planned
 
 ## How to run
 
@@ -32,10 +30,10 @@ The game is not done **yet** so i dont see why you would be willing to run this.
 git clone https://github.com/otzpt/evade && cd evade
 ```
 
-then you compile it (**WARNING**: **needs gcc 14 or newer verify your version with gcc --version**)
+then you compile it (**WARNING**: **needs gcc 5 (works on gcc 4.x but needs -std=c99) or newer verify your version with gcc --version**)
 
 ```bash
-gcc -Wall -Wextra main.c timer.c -O2 -o evade -lncurses -std=c23
+gcc -Wall -Wextra main.c timer.c -O2 -o evade -lncurses
 ```
 
 and now finally you run it
@@ -44,4 +42,4 @@ and now finally you run it
 ./evade
 ```
 
-**THIS TUTORIAL IS FOR LINUX AND YOU NEED GCC 14 OR NEWER INSTALLED AND C23 (SHOULD COME WITH GCC 14 AND NEWER)**
+**THIS TUTORIAL IS LINUX ONLY AND YOU NEED GCC 4.x(bare minimum using -std=c99) OR NEWER INSTALLED AND C99+ (SHOULD DEFAULT WITH GCC 5 AND NEWER)**
